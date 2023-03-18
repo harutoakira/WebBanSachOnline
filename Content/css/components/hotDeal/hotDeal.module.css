@@ -1,0 +1,112 @@
+.hotdeal__wrapper{
+
+}
+.hotdeal__banner__wrapper{
+    width: 100%;
+    height: 120px;
+}
+.hotdeal__banner__img{
+    width: 100%;
+    height: 100%;
+}
+.hotDeal__device__list{
+    padding: 10px;
+    background-color: var(--red-3--);
+}
+.hotDeal__device__wrapper{
+    width: 100%;
+    height: 487px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 10px 20px;
+    background-color: var(--white-origin--);
+    border-radius: 4px;
+}
+.hotDeal__lb__troGop{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 23px;
+    margin-bottom: 3px;
+}
+.hotDeal__device__img__wrapper{
+    width: 100%;
+    height: 206px;
+    margin-bottom: 22px;
+}
+.hotDeal__device__img{
+    width: 100%;
+    height: 100%;
+}
+.hotDeal__device__info{
+    display: flex;
+    flex-direction: column; 
+    gap: 8px; 
+}
+.hotDeal__device__name{
+    font-size: var(--fs-3--);
+    line-height: var(--lh-3-1--);
+    color: var(--black-2--);
+   
+}
+.hotDeal__device__txt__online{
+    font-size: var(--fs-3---);
+    line-height: var(--lh-3-1--);
+    color: var(--gray-1--);
+}
+.hotDeal__device__price{
+    font-size: var(--fs-6--);
+    line-height: var(--lh-6-1--);
+    color: var(--red-2--);
+    font-weight: var(--bold--);
+}
+.hotDeal__device__desc{
+    font-size: var(--fs-2---);
+    line-height: var(--lh-2-1--);
+    color: var(--gray-1--);
+}
+.hotDeal__lb__troGop{
+    display: inline-flex;
+    width: 70px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3px;
+    margin-bottom: 6px;
+    background-color: var(--white-1--);
+    font-size: var(--fs-1--);
+    color: var(--black-2--);
+}
+.hotDeal__footer{
+    padding: 4px 0;
+    background-color: var(--red-3--);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+.hotDeal__viewMore__btn{
+    background-color: var(--white-origin--);
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    color: var(--black-1--);
+    display: block;
+    font-size: var(--fs-3--);
+    line-height: var(--lh-3-1--);
+    margin: 5px auto 15px;
+    padding: 15px 20px;
+    text-align: center;
+    width: 340px;
+    position: relative;
+}
+.hotDeal__viewMore__btn::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 45px );
+    transform: translateY(-50%);
+    border-top: 8px solid var(--black-1--);
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+}
+.hotDeal__viewMore__btn:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,32 @@
+.main__menu__wrapper{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: var(--primary-color--);
+    padding-top: 10px;
+}
+.main__menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main__menu__item{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.main__menu__item:hover{
+    cursor: pointer;
+}
+.main__menu__icon__wrapper{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+}
+.main__menu__icon{
+    font-size: 1rem;    
+}
+.main__menu__content{
+    font-size: var(--fs-3--);
+    line-height: var(--lh-3-1--);
+}

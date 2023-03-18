@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
+:root{
+    /* ================ Font-size ================ */
+    --fs-1--: 11px;
+    --fs-2--: 12px;
+    --fs-3--: 14px;
+    --fs-4--: 16px;
+    --fs-5--: 17px;
+    --fs-6--: 18px;
+    --fs-7--: 22px;
+    --fs-8--: 45px;
+    /* ================ Line-height ================ */
+    --lh-1-1--: 15px;
+    --lh-2-1--: 14px;
+    --lh-3-1--: 16px;
+    --lh-4-1--: 14px;
+    --lh-5-1--: 20px;
+    --lh-6-1--: 18px;
+    --lh-6-2--: 25px;
+    --lh-7-1--: 28px;
+    --lh-7-2--: 36px;
+    --lh-8-1--: 40px;
+    /* ================ Font-weight ================ */
+    --normal--: 400;
+    --medium--: 500;
+    --semi-bold--: 600;
+    --bold--: 700;
+    --extra-bold--: 800;
+    /* ================ Color ================ */
+    --primary-color-light--: #ffd400;
+    --primary-color-lighter--: rgba(255,172,10,.6);
+    --yellow-line-color--: #ffe56c;
+    --black-origin--: #000000;
+    --black-1--: #222222;
+    --black-2--: #333333;
+    --black-3--: #555555;
+    --gray-1--: #666666;
+    --gray-2--: #999999;
+    --white-origin--: #ffffff;
+    --white-1--: #f1f1f1;
+    --red-1--: #e91e63;
+    --red-2--: #d0021c;
+    --red-3--: #ED1C24;
+    --red-4--: #ff0b0b;
+    --orange-1--: #fb6e2e;
+    --blue-1--: #2f80ed;
+    
+    --service-box-bg-1--: #dceeff;
+    --service-box-bg-2--: #fef5cf;
+    --service-box-bg-3--: #ffefdb;
+    --service-box-bg-4--: #e1fecf;
+   
+    /* ================ Linear background ================ */
+    --background-linear-1--: linear-gradient(90deg,#ffecd2 0%,#fcb69f 100%);
+    /* ================ Box Shadow ================ */
+    --box-shadow-1--: drop-shadow(0 4px 7px rgba(0,0,0,.15));position: absolute;
+}

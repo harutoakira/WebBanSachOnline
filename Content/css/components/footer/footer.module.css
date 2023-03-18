@@ -1,0 +1,130 @@
+.footer__background{
+    background-color: var(--white-origin--);
+}
+.footer__wrapper{
+    padding: 15px 0 5px;
+}
+.footer__menu__list{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.footer__menu__item{
+
+}
+.footer__menu__item__link{
+    font-size: var(--fs-3--);
+    line-height: var(--lh-3-1--);
+    font-weight: var(--medium--);
+    color: var(--black-3--);
+}
+
+.f-lisstel__tile{
+    font-size: var(--fs-3--);
+    line-height: var(--lh-3-1--);
+    font-weight: var(--medium--);
+    color: var(--black-3--);
+    margin-bottom: 15px;
+}
+.f-lisstel__tile__strong{
+    font-weight: var(--semi-bold--);
+}
+.f-listtel__list{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.f-listtel__item{
+    font-size: var(--fs-3--);
+    line-height: var(--lh-3-1--);
+    font-weight: var(--medium--);
+    color: var(--black-3--);
+}
+.f-listtel__item__strong{
+    font-weight: var(--bold--);
+    color: var(--blue-1--);
+}
+.f-socials{
+    display: flex;
+    align-items: center;
+    gap: 11px;    
+    margin-bottom: 22px;
+}
+.f-social{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.f-social__icon__wrapper{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--blue-1--);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.f-social__icon__wrapper.youtube{
+    background-color: var(--red-2--);
+}
+.f-social__icon{
+    font-size: .5rem;
+    color: var(--white-origin--);
+}
+.f-social__content{
+    font-size: var(--fs-2--);
+    font-weight: var(--normal--);
+    line-height: var(--lh-2-1--);
+    color: var(--blue-1--);
+}
+
+.f-certifys{
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+.f-certify__wrapper.first{
+    width: 79px;
+    height: 28px;
+}
+.f-certify__wrapper.second{
+    width: 25px;
+    height: 25px;
+}
+.f-certify__wrapper.third{
+    width: 122px;
+    height: 24px;
+}
+.f-certify__wrapper.fourth{
+    width: 85px;
+    height: 39px;
+}
+.f-certify{
+    width: 100%;
+    height: 100%;
+}
+
+.f-logo__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.f-logo-hd__title{
+    font-size: var(--fs-3--);
+    font-weight: var(--medium--);
+    color: var(--black-1--);
+}
+.f-logo-hd__list{
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+.f-logo-hd__item{
+    width: 60px;
+    height: 20px;
+}
+.f-logo-hd__item__img{
+    width: 100%;
+    height: 100%;
+}

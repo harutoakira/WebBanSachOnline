@@ -1,0 +1,39 @@
+.banner__slider{
+    height: 180px;
+    margin-bottom: 30px;
+    position: relative;
+}
+.banner__slides__wrapper{
+    overflow: hidden;
+}
+.banner__slides{
+    height: 100%;
+    flex-wrap: nowrap;
+    transition: all ease .25s;
+}
+.banner__slide__img__wrapper{
+    display: block;
+    width: 100%;
+    height: 180px;
+}
+.banner__slide__img{
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+.banner__slider__direction__btn{
+   
+}
+.banner__slider__direction__btn.prev{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -22px;
+    
+}
+.banner__slider__direction__btn.next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -22px;
+}

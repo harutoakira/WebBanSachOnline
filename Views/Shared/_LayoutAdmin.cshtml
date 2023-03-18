@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin</title>
+    <link href="" />
+    <link href="~/Content/Admin/style.css" rel="stylesheet" />
+    <link href="~/Content/Admin/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Admin/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/Admin/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/font-awesome-ie7.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/style-forms.css" rel="stylesheet" />
+    <link href="~/Content/Admin/uploadify.css" rel="stylesheet" />
+    <link href="~/Content/Admin/style-responsive.css" rel="stylesheet" />
+</head>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar-expand navbar-dark bg-dark">
+        @Html.Partial("~/Views/Shared/_AdminHeader.cshtml")
+    </nav>
+    <div id="layoutsidenav">
+        @Html.Partial("~/Views/Shared/_AdminSideBar.cshtml")
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <div class="card-body">
+                        @RenderBody()
+                    </div>
+                </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                @Html.Partial("~/Views/Shared/_AdminFooter.cshtml")
+            </footer>
+        </div>
+    </div>
+</body>
+<script src="~/Scripts/bootstrap.bundle.min.js"></script>
+</html>

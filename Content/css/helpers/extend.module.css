@@ -1,0 +1,37 @@
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circle-shape{
+    border-radius: 50%;
+}
+.section-title{
+    display: block;
+    overflow: hidden;
+    padding: 15px 22px;
+    font-size: var(--fs-7--);
+    line-height: var(--lh-7-2--);
+    color: var(--black-2--);
+    text-transform: uppercase;
+    font-weight: var(--bold--);
+}
+.direction-btn{
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    background-color: var(--white-origin--);
+    opacity: .8;
+    filter: var(--box-shadow-1--);
+}
+.direction-btn:hover{
+    cursor: pointer;
+}
+.direction-btn i {
+    /* * Style icon here * */
+}
+
+/* =============== Section distance ============ */
+.mb-30{
+    margin-bottom: 30px;
+}

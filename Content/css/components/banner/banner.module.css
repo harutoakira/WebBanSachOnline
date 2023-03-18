@@ -1,0 +1,11 @@
+.banner__wrapper{
+    display: block;
+    max-width: 100vw;
+    height: 450px;
+    margin: 0 auto;
+
+}
+.banner__img{
+    width: 100%;
+    height: 100%;
+}

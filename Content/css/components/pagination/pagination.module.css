@@ -1,0 +1,21 @@
+.pagination__wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.pagination{
+    display: flex;
+    gap: 10px
+}
+.pagination-sg{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid var(--gray-2--);
+}   
+.pagination-sg a {
+    width: 100%;
+    height: 100%;
+}

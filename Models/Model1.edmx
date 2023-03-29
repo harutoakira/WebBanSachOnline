@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MVCBanSachOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MVCBanSachOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietDonHang">
           <Key>
             <PropertyRef Name="MaDonHang" />
@@ -222,7 +222,8 @@
             <End Role="Sach" EntitySet="Sach" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MVCBanSachOnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -244,7 +245,7 @@
           </Key>
           <Property Name="MaChuDe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenChuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Saches" Relationship="Self.FK_Sach_ChuDe" FromRole="ChuDe" ToRole="Sach" />
+          <NavigationProperty Name="Sach" Relationship="Self.FK_Sach_ChuDe" FromRole="ChuDe" ToRole="Sach" />
         </EntityType>
         <EntityType Name="DonHang">
           <Key>
@@ -256,7 +257,7 @@
           <Property Name="NgayDat" Type="DateTime" Precision="3" />
           <Property Name="NgayGiao" Type="DateTime" Precision="3" />
           <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK_ChiTietDonHang_DonHang" FromRole="DonHang" ToRole="ChiTietDonHang" />
+          <NavigationProperty Name="ChiTietDonHang" Relationship="Self.FK_ChiTietDonHang_DonHang" FromRole="DonHang" ToRole="ChiTietDonHang" />
           <NavigationProperty Name="KhachHangMVC" Relationship="Self.FK_DonHang_KhachHangMVC" FromRole="DonHang" ToRole="KhachHangMVC" />
         </EntityType>
         <EntityType Name="KhachHangMVC">
@@ -270,8 +271,8 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="DonHangs" Relationship="Self.FK_DonHang_KhachHangMVC" FromRole="KhachHangMVC" ToRole="DonHang" />
           <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DonHang" Relationship="Self.FK_DonHang_KhachHangMVC" FromRole="KhachHangMVC" ToRole="DonHang" />
         </EntityType>
         <EntityType Name="MVCThamGia">
           <Key>
@@ -293,7 +294,7 @@
           <Property Name="TenNXB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Saches" Relationship="Self.FK_Sach_NhaXuatBan" FromRole="NhaXuatBan" ToRole="Sach" />
+          <NavigationProperty Name="Sach" Relationship="Self.FK_Sach_NhaXuatBan" FromRole="NhaXuatBan" ToRole="Sach" />
         </EntityType>
         <EntityType Name="Sach">
           <Key>
@@ -308,12 +309,12 @@
           <Property Name="SoLuongTon" Type="Int32" />
           <Property Name="MaNXB" Type="Int32" />
           <Property Name="MaChuDe" Type="Int32" />
-          <NavigationProperty Name="ChiTietDonHangs" Relationship="Self.FK_ChiTietDonHang_Sach" FromRole="Sach" ToRole="ChiTietDonHang" />
+          <NavigationProperty Name="ChiTietDonHang" Relationship="Self.FK_ChiTietDonHang_Sach" FromRole="Sach" ToRole="ChiTietDonHang" />
           <NavigationProperty Name="ChuDe" Relationship="Self.FK_Sach_ChuDe" FromRole="Sach" ToRole="ChuDe" />
-          <NavigationProperty Name="MVCThamGias" Relationship="Self.FK_MVCThamGia_Sach" FromRole="Sach" ToRole="MVCThamGia" />
+          <NavigationProperty Name="MVCThamGia" Relationship="Self.FK_MVCThamGia_Sach" FromRole="Sach" ToRole="MVCThamGia" />
           <NavigationProperty Name="NhaXuatBan" Relationship="Self.FK_Sach_NhaXuatBan" FromRole="Sach" ToRole="NhaXuatBan" />
         </EntityType>
-        <EntityType Name="sysdiagram">
+        <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -332,7 +333,7 @@
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TieuSu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MVCThamGias" Relationship="Self.FK_MVCThamGia_TacGia" FromRole="TacGia" ToRole="MVCThamGia" />
+          <NavigationProperty Name="MVCThamGia" Relationship="Self.FK_MVCThamGia_TacGia" FromRole="TacGia" ToRole="MVCThamGia" />
         </EntityType>
         <Association Name="FK_ChiTietDonHang_DonHang">
           <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
@@ -418,43 +419,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MVCBanSachOnlineEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ChiTietDonHangs" EntityType="Self.ChiTietDonHang" />
-          <EntitySet Name="ChuDes" EntityType="Self.ChuDe" />
-          <EntitySet Name="DonHangs" EntityType="Self.DonHang" />
-          <EntitySet Name="KhachHangMVCs" EntityType="Self.KhachHangMVC" />
-          <EntitySet Name="MVCThamGias" EntityType="Self.MVCThamGia" />
-          <EntitySet Name="NhaXuatBans" EntityType="Self.NhaXuatBan" />
-          <EntitySet Name="Saches" EntityType="Self.Sach" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="TacGias" EntityType="Self.TacGia" />
+        <EntityContainer Name="MVCBanSachOnlineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChiTietDonHang" EntityType="Self.ChiTietDonHang" />
+          <EntitySet Name="ChuDe" EntityType="Self.ChuDe" />
+          <EntitySet Name="DonHang" EntityType="Self.DonHang" />
+          <EntitySet Name="KhachHangMVC" EntityType="Self.KhachHangMVC" />
+          <EntitySet Name="MVCThamGia" EntityType="Self.MVCThamGia" />
+          <EntitySet Name="NhaXuatBan" EntityType="Self.NhaXuatBan" />
+          <EntitySet Name="Sach" EntityType="Self.Sach" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TacGia" EntityType="Self.TacGia" />
           <AssociationSet Name="FK_ChiTietDonHang_DonHang" Association="Self.FK_ChiTietDonHang_DonHang">
-            <End Role="DonHang" EntitySet="DonHangs" />
-            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+            <End Role="DonHang" EntitySet="DonHang" />
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
           </AssociationSet>
           <AssociationSet Name="FK_ChiTietDonHang_Sach" Association="Self.FK_ChiTietDonHang_Sach">
-            <End Role="Sach" EntitySet="Saches" />
-            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
+            <End Role="Sach" EntitySet="Sach" />
+            <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
           </AssociationSet>
           <AssociationSet Name="FK_Sach_ChuDe" Association="Self.FK_Sach_ChuDe">
-            <End Role="ChuDe" EntitySet="ChuDes" />
-            <End Role="Sach" EntitySet="Saches" />
+            <End Role="ChuDe" EntitySet="ChuDe" />
+            <End Role="Sach" EntitySet="Sach" />
           </AssociationSet>
           <AssociationSet Name="FK_DonHang_KhachHangMVC" Association="Self.FK_DonHang_KhachHangMVC">
-            <End Role="KhachHangMVC" EntitySet="KhachHangMVCs" />
-            <End Role="DonHang" EntitySet="DonHangs" />
+            <End Role="KhachHangMVC" EntitySet="KhachHangMVC" />
+            <End Role="DonHang" EntitySet="DonHang" />
           </AssociationSet>
           <AssociationSet Name="FK_MVCThamGia_Sach" Association="Self.FK_MVCThamGia_Sach">
-            <End Role="Sach" EntitySet="Saches" />
-            <End Role="MVCThamGia" EntitySet="MVCThamGias" />
+            <End Role="Sach" EntitySet="Sach" />
+            <End Role="MVCThamGia" EntitySet="MVCThamGia" />
           </AssociationSet>
           <AssociationSet Name="FK_MVCThamGia_TacGia" Association="Self.FK_MVCThamGia_TacGia">
-            <End Role="TacGia" EntitySet="TacGias" />
-            <End Role="MVCThamGia" EntitySet="MVCThamGias" />
+            <End Role="TacGia" EntitySet="TacGia" />
+            <End Role="MVCThamGia" EntitySet="MVCThamGia" />
           </AssociationSet>
           <AssociationSet Name="FK_Sach_NhaXuatBan" Association="Self.FK_Sach_NhaXuatBan">
-            <End Role="NhaXuatBan" EntitySet="NhaXuatBans" />
-            <End Role="Sach" EntitySet="Saches" />
+            <End Role="NhaXuatBan" EntitySet="NhaXuatBan" />
+            <End Role="Sach" EntitySet="Sach" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -462,8 +463,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MVCBanSachOnlineModelStoreContainer" CdmEntityContainer="MVCBanSachOnlineEntities1">
-          <EntitySetMapping Name="ChiTietDonHangs">
+        <EntityContainerMapping StorageEntityContainer="MVCBanSachOnlineModelStoreContainer" CdmEntityContainer="MVCBanSachOnlineEntities">
+          <EntitySetMapping Name="ChiTietDonHang">
             <EntityTypeMapping TypeName="MVCBanSachOnlineModel.ChiTietDonHang">
               <MappingFragment StoreEntitySet="ChiTietDonHang">
                 <ScalarProperty Name="MaDonHang" ColumnName="MaDonHang" />
@@ -473,7 +474,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ChuDes">
+          <EntitySetMapping Name="ChuDe">
             <EntityTypeMapping TypeName="MVCBanSachOnlineModel.ChuDe">
               <MappingFragment StoreEntitySet="ChuDe">
                 <ScalarProperty Name="MaChuDe" ColumnName="MaChuDe" />
@@ -481,7 +482,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DonHangs">
+          <EntitySetMapping Name="DonHang">
             <EntityTypeMapping TypeName="MVCBanSachOnlineModel.DonHang">
               <MappingFragment StoreEntitySet="DonHang">
                 <ScalarProperty Name="MaDonHang" ColumnName="MaDonHang" />
@@ -493,10 +494,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="KhachHangMVCs">
+          <EntitySetMapping Name="KhachHangMVC">
             <EntityTypeMapping TypeName="MVCBanSachOnlineModel.KhachHangMVC">
               <MappingFragment StoreEntitySet="KhachHangMVC">
-                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
                 <ScalarProperty Name="MaKH" ColumnName="MaKH" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
                 <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
@@ -504,10 +504,11 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MVCThamGias">
+          <EntitySetMapping Name="MVCThamGia">
             <EntityTypeMapping TypeName="MVCBanSachOnlineModel.MVCThamGia">
               <MappingFragment StoreEntitySet="MVCThamGia">
                 <ScalarProperty Name="MaSach" ColumnName="MaSach" />
@@ -517,7 +518,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="NhaXuatBans">
+          <EntitySetMapping Name="NhaXuatBan">
             <EntityTypeMapping TypeName="MVCBanSachOnlineModel.NhaXuatBan">
               <MappingFragment StoreEntitySet="NhaXuatBan">
                 <ScalarProperty Name="MaNXB" ColumnName="MaNXB" />
@@ -527,7 +528,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Saches">
+          <EntitySetMapping Name="Sach">
             <EntityTypeMapping TypeName="MVCBanSachOnlineModel.Sach">
               <MappingFragment StoreEntitySet="Sach">
                 <ScalarProperty Name="MaSach" ColumnName="MaSach" />
@@ -543,7 +544,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="MVCBanSachOnlineModel.sysdiagram">
+            <EntityTypeMapping TypeName="MVCBanSachOnlineModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -553,7 +554,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TacGias">
+          <EntitySetMapping Name="TacGia">
             <EntityTypeMapping TypeName="MVCBanSachOnlineModel.TacGia">
               <MappingFragment StoreEntitySet="TacGia">
                 <ScalarProperty Name="MaTacGia" ColumnName="MaTacGia" />
@@ -578,7 +579,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

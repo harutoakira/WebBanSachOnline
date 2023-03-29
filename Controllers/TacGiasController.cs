@@ -12,12 +12,12 @@ namespace WebBanSachOnline.Controllers
 {
     public class TacGiasController : Controller
     {
-        private MVCBanSachOnlineEntities1 db = new MVCBanSachOnlineEntities1();
+        private MVCBanSachOnlineEntities db = new MVCBanSachOnlineEntities();
 
         // GET: TacGias
         public ActionResult Index()
         {
-            return View(db.TacGias.ToList());
+            return View(db.TacGia.ToList());
         }
 
         // GET: TacGias/Details/5
@@ -27,7 +27,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TacGia tacGia = db.TacGias.Find(id);
+            TacGia tacGia = db.TacGia.Find(id);
             if (tacGia == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace WebBanSachOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.TacGias.Add(tacGia);
+                db.TacGia.Add(tacGia);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TacGia tacGia = db.TacGias.Find(id);
+            TacGia tacGia = db.TacGia.Find(id);
             if (tacGia == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TacGia tacGia = db.TacGias.Find(id);
+            TacGia tacGia = db.TacGia.Find(id);
             if (tacGia == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace WebBanSachOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TacGia tacGia = db.TacGias.Find(id);
-            db.TacGias.Remove(tacGia);
+            TacGia tacGia = db.TacGia.Find(id);
+            db.TacGia.Remove(tacGia);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

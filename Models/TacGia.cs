@@ -17,7 +17,7 @@ namespace WebBanSachOnline.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TacGia()
         {
-            this.MVCThamGias = new HashSet<MVCThamGia>();
+            this.MVCThamGia = new HashSet<MVCThamGia>();
         }
     
         public int MaTacGia { get; set; }
@@ -27,6 +27,6 @@ namespace WebBanSachOnline.Models
         public string DienThoai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MVCThamGia> MVCThamGias { get; set; }
+        public virtual ICollection<MVCThamGia> MVCThamGia { get; set; }
     }
 }

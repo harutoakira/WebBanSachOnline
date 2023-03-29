@@ -12,12 +12,12 @@ namespace WebBanSachOnline.Controllers
 {
     public class ChuDesController : Controller
     {
-        private MVCBanSachOnlineEntities1 db = new MVCBanSachOnlineEntities1();
+        private MVCBanSachOnlineEntities db = new MVCBanSachOnlineEntities();
 
         // GET: ChuDes
         public ActionResult Index()
         {
-            return View(db.ChuDes.ToList());
+            return View(db.ChuDe.ToList());
         }
 
         // GET: ChuDes/Details/5
@@ -27,7 +27,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChuDe chuDe = db.ChuDes.Find(id);
+            ChuDe chuDe = db.ChuDe.Find(id);
             if (chuDe == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace WebBanSachOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ChuDes.Add(chuDe);
+                db.ChuDe.Add(chuDe);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChuDe chuDe = db.ChuDes.Find(id);
+            ChuDe chuDe = db.ChuDe.Find(id);
             if (chuDe == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChuDe chuDe = db.ChuDes.Find(id);
+            ChuDe chuDe = db.ChuDe.Find(id);
             if (chuDe == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace WebBanSachOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ChuDe chuDe = db.ChuDes.Find(id);
-            db.ChuDes.Remove(chuDe);
+            ChuDe chuDe = db.ChuDe.Find(id);
+            db.ChuDe.Remove(chuDe);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -7,7 +7,7 @@ namespace WebBanSachOnline.Models
 {
     public class GioHang
     {
-        MVCBanSachOnlineEntities1 db = new MVCBanSachOnlineEntities1();
+        MVCBanSachOnlineEntities db = new MVCBanSachOnlineEntities();
         public int iMaSach { get; set; }
         public string sTenSach { get; set; }
         public string sHinhAnh { get; set; }
@@ -18,8 +18,8 @@ namespace WebBanSachOnline.Models
 
         public GioHang(int MaSach)
         {
-            this.iMaSach= MaSach;
-            Sach sach = db.Saches.Single(n => n.MaSach == MaSach);
+            this.iMaSach = MaSach;
+            Sach sach = db.Sach.Single(n => n.MaSach == MaSach);
             sTenSach = sach.TenSach;
             sHinhAnh = sach.AnhBia;
             dDonGia = double.Parse(sach.GiaBan.ToString());

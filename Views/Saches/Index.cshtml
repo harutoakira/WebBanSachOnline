@@ -2,74 +2,78 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div style="margin:10px auto;width:90%;">
+    <h2 style="text-align:center"> SÁCH CỦA CỬA HÀNG </h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenSach)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GiaBan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnhBia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayCapNhat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoLuongTon)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ChuDe.TenChuDe)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NhaXuatBan.TenNXB)
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary"})
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+               Tên sách
+            </th>
+            <th>
+                Giá bán
+            </th>
+            <th>
+                Mô tả
+            </th>
+            <th>
+                Ảnh bìa
+            </th>
+            <th>
+                Ngày cập nhật
+            </th>
+            <th>
+                Số lượng tồn
+            </th>
+            <th>
+                Chủ đề
+            </th>
+            <th>
+                Tên nhà xuất bản
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenSach)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaBan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MoTa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnhBia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayCapNhat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLuongTon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaSach }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaSach }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaSach })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSach)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaBan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnhBia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuongTon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaSach }, new {@class="btn btn-success"}) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaSach }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaSach }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>

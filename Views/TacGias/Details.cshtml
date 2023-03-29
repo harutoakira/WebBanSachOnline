@@ -2,49 +2,50 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>Details</h2>
+<div style="margin:10px auto;width:70%">
+    <h2 style="text-align:center">THÔNG TIN CHI TIẾT CỦA TÁC GIẢ</h2>
+    <div>
+       
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên tác giả
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TenTacGia)
+            </dd>
 
-<div>
-    <h4>TacGia</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenTacGia)
-        </dt>
+            <dt>
+                Địa chỉ
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenTacGia)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
+            <dt>
+                Tiểu sử
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TieuSu)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TieuSu)
-        </dt>
+           <dt>
+               Điện thoại
+           </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TieuSu)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DienThoai)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DienThoai)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DienThoai)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaTacGia }, new { @class="btn btn-success"}) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTacGia }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

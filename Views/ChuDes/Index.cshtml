@@ -2,32 +2,41 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div style="margin:10px auto;width:90%;">
+    <h2 style="text-align:center"> THỂ LOẠI SÁCH </h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenChuDe)
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Thể loại sách
+            </th>
+            <th>
+                Mã thể loại
+            </th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenChuDe)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaChuDe }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaChuDe }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaChuDe })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenChuDe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaChuDe)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaChuDe }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaChuDe }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaChuDe }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

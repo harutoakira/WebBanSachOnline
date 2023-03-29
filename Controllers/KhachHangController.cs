@@ -9,7 +9,7 @@ namespace WebBanSachOnline.Controllers
 {
     public class KhachHangController : Controller
     {
-        MVCBanSachOnlineEntities1 db = new MVCBanSachOnlineEntities1();
+        MVCBanSachOnlineEntities db = new MVCBanSachOnlineEntities();
         // GET: KhachHang
         public ActionResult Index()
         {
@@ -27,7 +27,7 @@ namespace WebBanSachOnline.Controllers
         {
             if(ModelState.IsValid)
             {
-                db.KhachHangMVCs.Add(kh);
+                db.KhachHangMVC.Add(kh);
                 db.SaveChanges();
                 return RedirectToAction("Index","Home");
             }
@@ -47,7 +47,7 @@ namespace WebBanSachOnline.Controllers
         {
            string sTaiKhoan = f["txtTaiKhoan"].ToString();
            string sMatKhau = f["txtMatKhau"].ToString();
-           KhachHangMVC kh = db.KhachHangMVCs.SingleOrDefault(n => n.TaiKhoan.Equals( sTaiKhoan) && n.MatKhau.Equals(sMatKhau));
+           KhachHangMVC kh = db.KhachHangMVC.SingleOrDefault(n => n.TaiKhoan.Equals( sTaiKhoan) && n.MatKhau.Equals(sMatKhau));
             if(kh != null && kh.HoTen == "admin" && kh.MatKhau == "123") 
             {
                 Session["TaiKhoan"] = kh;

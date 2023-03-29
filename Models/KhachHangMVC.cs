@@ -17,7 +17,7 @@ namespace WebBanSachOnline.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHangMVC()
         {
-            this.DonHangs = new HashSet<DonHang>();
+            this.DonHang = new HashSet<DonHang>();
         }
     
         public int MaKH { get; set; }
@@ -30,6 +30,6 @@ namespace WebBanSachOnline.Models
         public string MatKhau { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonHang> DonHangs { get; set; }
+        public virtual ICollection<DonHang> DonHang { get; set; }
     }
 }

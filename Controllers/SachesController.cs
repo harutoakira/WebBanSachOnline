@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -12,12 +13,12 @@ namespace WebBanSachOnline.Controllers
 {
     public class SachesController : Controller
     {
-        private MVCBanSachOnlineEntities1 db = new MVCBanSachOnlineEntities1();
+        private MVCBanSachOnlineEntities db = new MVCBanSachOnlineEntities();
 
         // GET: Saches
         public ActionResult Index()
         {
-            var saches = db.Saches.Include(s => s.ChuDe).Include(s => s.NhaXuatBan);
+            var saches = db.Sach.Include(s => s.ChuDe).Include(s => s.NhaXuatBan);
             return View(saches.ToList());
         }
 
@@ -28,7 +29,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sach sach = db.Saches.Find(id);
+            Sach sach = db.Sach.Find(id);
             if (sach == null)
             {
                 return HttpNotFound();
@@ -39,8 +40,8 @@ namespace WebBanSachOnline.Controllers
         // GET: Saches/Create
         public ActionResult Create()
         {
-            ViewBag.MaChuDe = new SelectList(db.ChuDes, "MaChuDe", "TenChuDe");
-            ViewBag.MaNXB = new SelectList(db.NhaXuatBans, "MaNXB", "TenNXB");
+            ViewBag.MaChuDe = new SelectList(db.ChuDe, "MaChuDe", "TenChuDe");
+            ViewBag.MaNXB = new SelectList(db.NhaXuatBan, "MaNXB", "TenNXB");
             return View();
         }
 
@@ -49,17 +50,28 @@ namespace WebBanSachOnline.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaSach,TenSach,GiaBan,MoTa,AnhBia,NgayCapNhat,SoLuongTon,MaNXB,MaChuDe")] Sach sach)
+        public ActionResult Create([Bind(Include = "MaSach,TenSach,GiaBan,MoTa,AnhBia,NgayCapNhat,SoLuongTon,MaNXB,MaChuDe")] Sach sach, HttpPostedFileBase AnhBia)
         {
             if (ModelState.IsValid)
             {
-                db.Saches.Add(sach);
+                if(AnhBia !=null)
+                {
+                    //Lấy tên file của hình được up lên
+                    var fileName = Path.GetFileName(AnhBia.FileName);
+                   //Tạo đường dẫn tới file
+                    var path = Path.Combine(Server.MapPath("~/Content/assets/image/"), fileName);
+                    //Lưu tên
+                    sach.AnhBia = fileName;
+                    //Lưu vào Ảnh bìa
+                    AnhBia.SaveAs(path);
+                }
+                db.Sach.Add(sach);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaChuDe = new SelectList(db.ChuDes, "MaChuDe", "TenChuDe", sach.MaChuDe);
-            ViewBag.MaNXB = new SelectList(db.NhaXuatBans, "MaNXB", "TenNXB", sach.MaNXB);
+            ViewBag.MaChuDe = new SelectList(db.ChuDe, "MaChuDe", "TenChuDe", sach.MaChuDe);
+            ViewBag.MaNXB = new SelectList(db.NhaXuatBan, "MaNXB", "TenNXB", sach.MaNXB);
             return View(sach);
         }
 
@@ -70,13 +82,13 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sach sach = db.Saches.Find(id);
+            Sach sach = db.Sach.Find(id);
             if (sach == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaChuDe = new SelectList(db.ChuDes, "MaChuDe", "TenChuDe", sach.MaChuDe);
-            ViewBag.MaNXB = new SelectList(db.NhaXuatBans, "MaNXB", "TenNXB", sach.MaNXB);
+            ViewBag.MaChuDe = new SelectList(db.ChuDe, "MaChuDe", "TenChuDe", sach.MaChuDe);
+            ViewBag.MaNXB = new SelectList(db.NhaXuatBan, "MaNXB", "TenNXB", sach.MaNXB);
             return View(sach);
         }
 
@@ -85,16 +97,34 @@ namespace WebBanSachOnline.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaSach,TenSach,GiaBan,MoTa,AnhBia,NgayCapNhat,SoLuongTon,MaNXB,MaChuDe")] Sach sach)
+        public ActionResult Edit([Bind(Include = "MaSach,TenSach,GiaBan,MoTa,AnhBia,NgayCapNhat,SoLuongTon,MaNXB,MaChuDe")] Sach sach, HttpPostedFileBase AnhBia)
         {
             if (ModelState.IsValid)
             {
+                var productDB = db.Sach.FirstOrDefault(p => p.MaSach ==sach.MaSach);
+                if(productDB == null)
+                {
+                    productDB.TenSach = sach.TenSach;
+                    productDB.GiaBan = sach.GiaBan;
+                    productDB.MoTa = sach.MoTa;                   
+                    if (AnhBia != null)
+                    {
+                        var fileName=Path.GetFileName(AnhBia.FileName);   
+                        var path=Path.Combine(Server.MapPath("~/Content/assets/HinhAnhSach"),fileName);
+                        productDB.AnhBia = fileName;
+                        AnhBia.SaveAs(path);
+                    }
+                    productDB.NgayCapNhat = sach.NgayCapNhat;
+                    productDB.SoLuongTon = sach.SoLuongTon;
+                    productDB.MaNXB = sach.MaNXB;
+                    productDB.MaChuDe = sach.MaChuDe;
+                }
                 db.Entry(sach).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaChuDe = new SelectList(db.ChuDes, "MaChuDe", "TenChuDe", sach.MaChuDe);
-            ViewBag.MaNXB = new SelectList(db.NhaXuatBans, "MaNXB", "TenNXB", sach.MaNXB);
+            ViewBag.MaChuDe = new SelectList(db.ChuDe, "MaChuDe", "TenChuDe", sach.MaChuDe);
+            ViewBag.MaNXB = new SelectList(db.NhaXuatBan, "MaNXB", "TenNXB", sach.MaNXB);
             return View(sach);
         }
 
@@ -105,7 +135,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sach sach = db.Saches.Find(id);
+            Sach sach = db.Sach.Find(id);
             if (sach == null)
             {
                 return HttpNotFound();
@@ -118,8 +148,8 @@ namespace WebBanSachOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Sach sach = db.Saches.Find(id);
-            db.Saches.Remove(sach);
+            Sach sach = db.Sach.Find(id);
+            db.Sach.Remove(sach);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

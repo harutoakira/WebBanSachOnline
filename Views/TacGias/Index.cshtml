@@ -2,50 +2,56 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div style="margin:10px auto;width:70%;">
+    <h2 style="text-align:center"> THÔNG TIN CÁC TÁC GIẢ </h2>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class="btn btn-primary"})
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Tên tác giả
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Tiểu sử
+            </th>
+            <th>
+                Điện thoại
+            </th>
+            <th>
+                Lệnh
+            </th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenTacGia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TieuSu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DienThoai)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenTacGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TieuSu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DienThoai)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaTacGia }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaTacGia }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaTacGia }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenTacGia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TieuSu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DienThoai)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaTacGia }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaTacGia }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaTacGia })
-        </td>
-    </tr>
-}
+    </table>
 
-</table>
+</div>

@@ -17,7 +17,7 @@ namespace WebBanSachOnline.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhaXuatBan()
         {
-            this.Saches = new HashSet<Sach>();
+            this.Sach = new HashSet<Sach>();
         }
     
         public int MaNXB { get; set; }
@@ -26,6 +26,6 @@ namespace WebBanSachOnline.Models
         public string DienThoai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sach> Saches { get; set; }
+        public virtual ICollection<Sach> Sach { get; set; }
     }
 }

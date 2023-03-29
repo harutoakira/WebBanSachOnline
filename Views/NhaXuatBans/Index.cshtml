@@ -2,44 +2,47 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div style="margin:10px auto;width:70%;">
+    <h2 style="text-align:center"> THÔNG TIN CÁC NHÀ XUẤT BẢN </h2>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Tên nhà xuất bản
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Điện thoại
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenNXB)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DienThoai)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNXB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DienThoai)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaNXB }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaNXB }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaNXB }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenNXB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DienThoai)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaNXB }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaNXB }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaNXB })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+    </div>

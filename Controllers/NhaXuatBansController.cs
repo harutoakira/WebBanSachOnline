@@ -12,12 +12,12 @@ namespace WebBanSachOnline.Controllers
 {
     public class NhaXuatBansController : Controller
     {
-        private MVCBanSachOnlineEntities1 db = new MVCBanSachOnlineEntities1();
+        private MVCBanSachOnlineEntities db = new MVCBanSachOnlineEntities();
 
         // GET: NhaXuatBans
         public ActionResult Index()
         {
-            return View(db.NhaXuatBans.ToList());
+            return View(db.NhaXuatBan.ToList());
         }
 
         // GET: NhaXuatBans/Details/5
@@ -27,7 +27,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhaXuatBan nhaXuatBan = db.NhaXuatBans.Find(id);
+            NhaXuatBan nhaXuatBan = db.NhaXuatBan.Find(id);
             if (nhaXuatBan == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace WebBanSachOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.NhaXuatBans.Add(nhaXuatBan);
+                db.NhaXuatBan.Add(nhaXuatBan);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhaXuatBan nhaXuatBan = db.NhaXuatBans.Find(id);
+            NhaXuatBan nhaXuatBan = db.NhaXuatBan.Find(id);
             if (nhaXuatBan == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace WebBanSachOnline.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NhaXuatBan nhaXuatBan = db.NhaXuatBans.Find(id);
+            NhaXuatBan nhaXuatBan = db.NhaXuatBan.Find(id);
             if (nhaXuatBan == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace WebBanSachOnline.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            NhaXuatBan nhaXuatBan = db.NhaXuatBans.Find(id);
-            db.NhaXuatBans.Remove(nhaXuatBan);
+            NhaXuatBan nhaXuatBan = db.NhaXuatBan.Find(id);
+            db.NhaXuatBan.Remove(nhaXuatBan);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

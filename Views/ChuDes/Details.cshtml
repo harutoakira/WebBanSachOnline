@@ -2,25 +2,28 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>Details</h2>
+<div style="margin:10px auto;width:70%">
+    <h2 style="text-align:center">THÔNG TIN CHI TIẾT CỦA CHỦ ĐỀ</h2>
 
-<div>
-    <h4>ChuDe</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenChuDe)
-        </dt>
+    <div>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên chủ đề
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenChuDe)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TenChuDe)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaChuDe }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaChuDe }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    </div>

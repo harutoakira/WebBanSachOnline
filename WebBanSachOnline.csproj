@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
-  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,7 +51,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -114,9 +119,6 @@
       <Private>True</Private>
       <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -127,15 +129,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ChuDesController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -147,47 +143,47 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietDonHang.cs">
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChuDe.cs">
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonHang.cs">
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\KhachHangMVC.cs">
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MVCBanSach.Context.cs">
+    <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MVCBanSach.Context.tt</DependentUpon>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MVCBanSach.cs">
+    <Compile Include="Models\Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MVCBanSach.Designer.cs">
+    <Compile Include="Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MVCBanSach.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\MVCThamGia.cs">
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaXuatBan.cs">
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sach.cs">
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TacGia.cs">
-      <DependentUpon>MVCBanSach.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2365,6 +2361,7 @@
     <Content Include="Content\assets\img\hotDeal\device\3.jpg" />
     <Content Include="Content\assets\img\hotDeal\device\4.jpg" />
     <Content Include="Content\assets\img\hotDeal\device\5.jpg" />
+    <Content Include="Content\assets\img\ImagePro\neuchicon1ngaydesong.jpg" />
     <Content Include="Content\assets\img\newChain\1.png" />
     <Content Include="Content\assets\img\newChain\2.png" />
     <Content Include="Content\assets\img\newChain\3.png" />
@@ -2422,29 +2419,15 @@
     <Content Include="Content\css\helpers\extend.module.css" />
     <Content Include="Content\css\helpers\variable.module.css" />
     <Content Include="Content\css\layouts\grid.module.css" />
+    <Content Include="Content\css\layouts\login.css" />
+    <Content Include="Content\css\layouts\mystyle.css" />
+    <Content Include="Content\css\layouts\stylepro.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\shoppingCart\shoppingCart.module.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\MVCBanSach.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MVCBanSach.edmx</DependentUpon>
-      <LastGenOutput>MVCBanSach.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\MVCBanSach.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MVCBanSach.edmx</DependentUpon>
-      <LastGenOutput>MVCBanSach.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\MVCBanSach.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MVCBanSach.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MVCBanSach.edmx.diagram">
-      <DependentUpon>MVCBanSach.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\assets\icon\fontawesome-free-6.1.1-web.zip" />
     <Content Include="Content\assets\icon\fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\less\brands.less" />
     <Content Include="Content\assets\icon\fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\less\fontawesome.less" />
@@ -2497,6 +2480,16 @@
     <Content Include="Content\assets\icon\fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\webfonts\fa-solid-900.woff2" />
     <Content Include="Content\assets\icon\fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\webfonts\fa-v4compatibility.ttf" />
     <Content Include="Content\assets\icon\fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -2525,13 +2518,18 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <None Include="Scripts\jquery-3.6.3.intellisense.js" />
-    <Content Include="Scripts\jquery-3.6.3.js" />
-    <Content Include="Scripts\jquery-3.6.3.min.js" />
-    <Content Include="Scripts\jquery-3.6.3.slim.js" />
-    <Content Include="Scripts\jquery-3.6.3.slim.min.js" />
-    <Content Include="Scripts\jquery-3.6.3.slim.min.map" />
-    <Content Include="Scripts\jquery-3.6.3.min.map" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.6.4.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.4.js" />
+    <Content Include="Scripts\jquery-3.6.4.min.js" />
+    <Content Include="Scripts\jquery-3.6.4.slim.js" />
+    <Content Include="Scripts\jquery-3.6.4.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -2552,19 +2550,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\ChuDes\Create.cshtml" />
-    <Content Include="Views\ChuDes\Delete.cshtml" />
-    <Content Include="Views\ChuDes\Details.cshtml" />
-    <Content Include="Views\ChuDes\Edit.cshtml" />
-    <Content Include="Views\ChuDes\Index.cshtml" />
     <Content Include="Views\NhaXuatBans\Create.cshtml" />
     <Content Include="Views\NhaXuatBans\Delete.cshtml" />
     <Content Include="Views\NhaXuatBans\Details.cshtml" />
     <Content Include="Views\NhaXuatBans\Edit.cshtml" />
     <Content Include="Views\NhaXuatBans\Index.cshtml" />
-    <Content Include="Views\Saches\Create.cshtml" />
     <Content Include="Views\Saches\Delete.cshtml" />
-    <Content Include="Views\Saches\Details.cshtml" />
     <Content Include="Views\Saches\Edit.cshtml" />
     <Content Include="Views\Saches\Index.cshtml" />
     <Content Include="Views\GioHang\Giohang.cshtml" />
@@ -2579,13 +2570,24 @@
     <Content Include="Views\Shared\_AdminSideBar.cshtml" />
     <Content Include="Views\Shared\_AdminFooter.cshtml" />
     <Content Include="Views\Shared\_AdminHeader.cshtml" />
+    <Content Include="Views\Shared\_MasterLayout.cshtml" />
+    <Content Include="Views\Saches\Create.cshtml" />
+    <Content Include="Views\Saches\Details.cshtml" />
+    <Content Include="Views\ChuDes\Index.cshtml" />
+    <Content Include="Views\ChuDes\Create.cshtml" />
+    <Content Include="Views\ChuDes\Details.cshtml" />
+    <Content Include="Views\ChuDes\Edit.cshtml" />
+    <Content Include="Views\ChuDes\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\assets\image\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.6.4.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.4.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -2622,11 +2624,12 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
   <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

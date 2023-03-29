@@ -9,7 +9,7 @@ namespace WebBanSachOnline.Controllers
 {
     public class GioHangController : Controller
     {
-        MVCBanSachOnlineEntities1 db = new MVCBanSachOnlineEntities1();
+        MVCBanSachOnlineEntities db = new MVCBanSachOnlineEntities();
         // GET: GioHang
         public ActionResult Giohang()
         {
@@ -17,21 +17,21 @@ namespace WebBanSachOnline.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            List<GioHang> listGioHang = new List<GioHang>();    
+            List<GioHang> listGioHang = new List<GioHang>();
             return View(listGioHang);
         }
 
         public ActionResult ThemGioHang(int iMaSach, string strURL)
         {
-          Sach sach  = db.Saches.SingleOrDefault(n => n.MaSach == iMaSach);
-            if(sach == null)
+            Sach sach = db.Sach.SingleOrDefault(n => n.MaSach == iMaSach);
+            if (sach == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
             List<GioHang> listGioHang = LayGioHang();
-            GioHang sanpham = listGioHang.Find(n => n.iMaSach== iMaSach);
-            if(sanpham == null)
+            GioHang sanpham = listGioHang.Find(n => n.iMaSach == iMaSach);
+            if (sanpham == null)
             {
                 sanpham = new GioHang(iMaSach);
                 return Redirect(strURL);
@@ -46,7 +46,7 @@ namespace WebBanSachOnline.Controllers
 
         public ActionResult XoaGioHang(int iMaSP)
         {
-            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == iMaSP);
+            Sach sach = db.Sach.SingleOrDefault(n => n.MaSach == iMaSP);
             if (sach == null)
             {
                 Response.StatusCode = 404;
@@ -58,7 +58,7 @@ namespace WebBanSachOnline.Controllers
             {
                 listGioHang.RemoveAll(n => n.iMaSach == sanpham.iMaSach);
             }
-           if(listGioHang.Count == 0)
+            if (listGioHang.Count == 0)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -67,7 +67,7 @@ namespace WebBanSachOnline.Controllers
 
         public ActionResult CapNhatGioHang(int iMaSP, FormCollection f)
         {
-            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == iMaSP);
+            Sach sach = db.Sach.SingleOrDefault(n => n.MaSach == iMaSP);
             if (sach == null)
             {
                 Response.StatusCode = 404;
@@ -85,9 +85,9 @@ namespace WebBanSachOnline.Controllers
         public List<GioHang> LayGioHang()
         {
             List<GioHang> listGioHang = Session["GioHang"] as List<GioHang>;
-            if(listGioHang == null)
+            if (listGioHang == null)
             {
-                listGioHang = new List<GioHang> ();
+                listGioHang = new List<GioHang>();
                 Session["GioHang"] = listGioHang;
             }
             return listGioHang;
@@ -96,7 +96,7 @@ namespace WebBanSachOnline.Controllers
         {
             int iTongSoLuog = 0;
             List<GioHang> listGioHang = Session["GioHang"] as List<GioHang>;
-            if(listGioHang != null)
+            if (listGioHang != null)
             {
                 iTongSoLuog = listGioHang.Sum(n => n.iSoLuong);
             }
@@ -109,7 +109,7 @@ namespace WebBanSachOnline.Controllers
             List<GioHang> listGioHang = Session["GioHang"] as List<GioHang>;
             if (listGioHang != null)
             {
-               dTongTien = listGioHang.Sum(n => n.ThanhTien);
+                dTongTien = listGioHang.Sum(n => n.ThanhTien);
             }
             return dTongTien;
         }

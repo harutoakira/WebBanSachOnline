@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/assets/icon/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Admin/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/layouts/mystyle.css" />
+</head>
+<body>
+    <div id="div-top">
+        <a class="navbar-brand ps-3" href="index.html">Admin</a>
+
+        <button class="btn btn-link btn-sm order-1 order-1g-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+
+        <form class="d-none d-md-inline-block form-inline ms-auto me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="search for..." aria-label="search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+    <div id="div-main">
+        <div id="div-left">          
+                            <ul style="list-style: none">
+                                <li>
+                                    <a class="nav-link" href="@Url.Action("IndexDonhang","Admin")">Đơn Hàng</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="@Url.Action("IndexSach","Admin")">Sách</a>
+
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="@Url.Action("IndexChuDe","Admin")">Chủ Đề</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="@Url.Action("IndexNXB","Admin")">Nhà Xuất Bản</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="@Url.Action("DangXuat","User")">Đăng Xuất </a>
+                                </li>
+                            </ul>
+                       
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Admin
+                    </div>
+            @*<h3>Danh mục quản lý</h3>
+                <ul style="list-style: none">
+                    <li>
+                        <a href="ChuDes">Chủ đề</a>
+                    </li>
+                    <li>
+                        <a href="NhaXuatBans">Nhà xuất bản</a>
+                    </li>
+                    <li>
+                        <a href="TacGias">Tác giả</a>
+                    </li>
+                    <li>
+                        <a href="Sách">Sách</a>
+                    </li>
+                </ul>*@
+        </div>
+        <div id="div-right">
+            @RenderBody()
+        </div>
+    </div>
+    <div id="div-footer">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; BookStore 2023</div>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    &middot;
+                    <a href="#">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

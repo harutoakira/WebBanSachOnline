@@ -3,31 +3,29 @@
     ViewBag.Title = "DangNhap";
     Layout = "~/Views/Shared/_LayoutLog.cshtml";
 }
-<div class="row justify-content-md-center">
-    <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        Đăng Nhập
-                    </div>
-                    <div class="card-body">
-                        @using (Html.BeginForm("DangNhap", "User", FormMethod.Post))
-                        {
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.TaiKhoan)
-                                <input placeholder="Tài Khoản" name="txtTaiKhoan" class="form-control" type="text" />
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.MatKhau,new {@name = "sMatKhau" })
-                                <input placeholder="Mật Khẩu" name="txtMatKHau" class="form-control" type="password" />
-                            </div>
-                            <div class="form-group">          
-                                <input type="submit"  name="submit" class="btn btn-primary" value="Đăng Nhập"/>
-                                <a class="btn btn-primary" href="@Url.Action("DangKy","User")">Đăng Ký</a>
-                            </div>
-                         }
-                    </div>
-                </div>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/layouts/stylepro.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-grid.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2 style="text-align:center;">Đăng nhập</h2>
+<div class="container mt-5">
+    <div class="row" style="display:flex; flex-direction:column;">
+        <div>
+            <h3>Tên</h3>
+            <input type="text" placeholder="Nhập Tên" style="width:150px;"  />
+        </div>
+        <div>
+            <h3>Mật Khẩu</h3>
+            <input type="password" placeholder="Nhập Password" style="width:150px;" />
+        </div>
+        <div>
+            <input type="checkbox" /> <label>Ghi Nhớ</label>
+
+        </div>
+        <div>
+            <button style="background-color:dodgerblue; color:white; width:150px; height:40px; border-radius:5px; font-size:20px;">Đăng nhập</button>
         </div>
     </div>
+</div>
 
 

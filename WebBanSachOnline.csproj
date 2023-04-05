@@ -2579,6 +2579,11 @@
     <Content Include="Views\Shared\_AdminSideBar.cshtml" />
     <Content Include="Views\Shared\_AdminFooter.cshtml" />
     <Content Include="Views\Shared\_AdminHeader.cshtml" />
+    <Content Include="Views\ChuDes1\Create.cshtml" />
+    <Content Include="Views\ChuDes1\Delete.cshtml" />
+    <Content Include="Views\ChuDes1\Details.cshtml" />
+    <Content Include="Views\ChuDes1\Edit.cshtml" />
+    <Content Include="Views\ChuDes1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,7 +11,7 @@
     <link href="~/Content/css/components/footer/footer.module.css" rel="stylesheet" />
     <link href="~/Content/css/components/hotDeal/hotDeal.module.css" rel="stylesheet" />
     <link href="~/Content/css/components/optionPromo/optionPromo.module.css" rel="stylesheet" />
-    <link href="~/Content/css/components/pagination/pagination.module.css" rel="stylesheet" />
+    @*<link href="~/Content/css/components/pagination/pagination.module.css" rel="stylesheet" />*@
     <link href="~/Content/css/components/slider/slider.module.css" rel="stylesheet" />
     <link href="~/Content/css/components/dailySg/dailySg.module.css" rel="stylesheet" />
     <link href="~/Content/css/components/discountPayonl/discountPayonl.module.css" rel="stylesheet" />
@@ -27,12 +27,11 @@
     <!-- * =========================== HEADER =========================== * -->
     <header class="header__wrapper">
         <!-- * =========================== HEADER-TOP =========================== * -->
-        
         <div class="row no-gutter">
             <div class="c-12 mt-gutter">
-                <div class="header__top__wrapper" style="height:10vh;">
+                <div class="header__top__wrapper" style="top: 0px;">
                     <a href="#" class="logo__wrapper flex-center">
-                        <img src="~/Content/assets/img/header/logo/newlogo.png" alt="logo" style="height: 10vh;">
+                        <img src="~/Content/assets/img/header/logo/newlogo.png" alt="logo" style="height: 20px;">
                     </a>
                     <div class="search__bar__wrapper">
                         <input type="text" class="search__bar" placeholder="Bạn tìm gì?...">
@@ -51,24 +50,24 @@
                     </button>
 
                     <!-- <ul class="header__listtop">
-                    <li class="header__listtop__item">
-                        <a href="#" class="header__listtop__item__content">
-                            24h
-                            <br>
-                            Công Nghệ
-                        </a>
-                    </li>
-                    <li class="header__listtop__item">
-                        <a href="#" class="header__listtop__item__content">
-                            Hỏi Đáp
-                        </a>
-                    </li>
-                    <li class="header__listtop__item">
-                        <a href="#" class="header__listtop__item__content">
-                            Game App
-                        </a>
-                    </li>
-                </ul> -->
+                        <li class="header__listtop__item">
+                            <a href="#" class="header__listtop__item__content">
+                                24h
+                                <br>
+                                Công Nghệ
+                            </a>
+                        </li>
+                        <li class="header__listtop__item">
+                            <a href="#" class="header__listtop__item__content">
+                                Hỏi Đáp
+                            </a>
+                        </li>
+                        <li class="header__listtop__item">
+                            <a href="#" class="header__listtop__item__content">
+                                Game App
+                            </a>
+                        </li>
+                    </ul> -->
                     <div class="account__wrapper">
                         <button type="button" class="header__top__account__btn">
                             <i class="fa-solid fa-user header__top__account__icon"></i>
@@ -83,10 +82,13 @@
             </div>
         </div>
     </header>
+
     <!-- * =========================== BANNER =========================== * -->
-    <a href="#" class="banner__wrapper">
-        <img src="~/Content/assets/img/banner/1.jpg" alt="banner" class="banner__img">
-    </a>
+    <div>
+        <a href="#" class="banner__wrapper">
+             <img src="~/Content/assets/img/banner/1.jpg" alt="banner" class="banner__img">
+        </a>
+    </div>
     <!-- * =========================== HERO =========================== * -->
     <div class="app grid wide">
         <!-- * =========================== SLIDER =========================== * -->

@@ -101,28 +101,33 @@ namespace WebBanSachOnline.Controllers
         {
             if (ModelState.IsValid)
             {
-                var productDB = db.Sach.FirstOrDefault(p => p.MaSach ==sach.MaSach);
-                if(productDB == null)
+                var productDB = db.Sach.FirstOrDefault(p => p.MaSach == sach.MaSach);
+                if (productDB == null)
                 {
-                    productDB.TenSach = sach.TenSach;
-                    productDB.GiaBan = sach.GiaBan;
-                    productDB.MoTa = sach.MoTa;                   
-                    if (AnhBia != null)
-                    {
-                        var fileName=Path.GetFileName(AnhBia.FileName);   
-                        var path=Path.Combine(Server.MapPath("~/Content/assets/HinhAnhSach"),fileName);
-                        productDB.AnhBia = fileName;
-                        AnhBia.SaveAs(path);
-                    }
-                    productDB.NgayCapNhat = sach.NgayCapNhat;
-                    productDB.SoLuongTon = sach.SoLuongTon;
-                    productDB.MaNXB = sach.MaNXB;
-                    productDB.MaChuDe = sach.MaChuDe;
+                    return HttpNotFound();
                 }
-                db.Entry(sach).State = EntityState.Modified;
+
+                // Assign values to productDB properties
+                productDB.TenSach = sach.TenSach;
+                productDB.GiaBan = sach.GiaBan;
+                productDB.MoTa = sach.MoTa;
+                if (AnhBia != null)
+                {
+                    var fileName = Path.GetFileName(AnhBia.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/assets/HinhAnhSach"), fileName);
+                    productDB.AnhBia = fileName;
+                    AnhBia.SaveAs(path);
+                }
+                productDB.NgayCapNhat = sach.NgayCapNhat;
+                productDB.SoLuongTon = sach.SoLuongTon;
+                productDB.MaNXB = sach.MaNXB;
+                productDB.MaChuDe = sach.MaChuDe;
+
+                db.Entry(productDB).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.MaChuDe = new SelectList(db.ChuDe, "MaChuDe", "TenChuDe", sach.MaChuDe);
             ViewBag.MaNXB = new SelectList(db.NhaXuatBan, "MaNXB", "TenNXB", sach.MaNXB);
             return View(sach);

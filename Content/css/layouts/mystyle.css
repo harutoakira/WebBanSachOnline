@@ -17,18 +17,18 @@
     font-family: Arial;
     font-size: 20px;
 }
-ul {
-    list-style-type: none;
-    padding: 0;
-    border: 1px solid #ddd;
-}
+#div-left  ul  li {
+        list-style-type: none;
+        padding: 0;
+        border: 1px solid #ddd;
+    }
 
-    ul li {
+    #div-left ul  li {
         padding: 8px 16px;
         border-bottom: 1px solid #ddd;
     }
 
-        ul li:last-child {
+        #div-left > ul > li:last-child {
             border-bottom: none
         }
 #div-left h3 {

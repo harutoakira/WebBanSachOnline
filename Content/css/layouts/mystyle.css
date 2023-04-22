@@ -2,11 +2,13 @@
     margin: 0;
 }
 
-#div-top {
-    height: 50px;
+#div-top_v1{
+    height: 3.1rem;
     background-color: aquamarine
 }
-
+#header{
+    height: 3.1rem !important;
+}
 #div-main {
     display: flex;
     flex-direction: row;
@@ -16,10 +18,11 @@
     height: auto;    
     font-family: Arial;
     font-size: 20px;
+    padding-left: 0px !important;
 }
 #div-left  ul  li {
         list-style-type: none;
-        padding: 0;
+       /* padding: 0;*/
         border: 1px solid #ddd;
     }
 

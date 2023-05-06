@@ -7,7 +7,7 @@
 }
 .header__top__wrapper{
     width: 1200px;
-    height: 20rem !important;
+/*    height: 20rem !important;*/
     margin: 0 auto;
     display: flex;
     align-items: center;
